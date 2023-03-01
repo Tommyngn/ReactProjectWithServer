@@ -5,7 +5,7 @@ import { UseEmployeeContext } from '../../../shared/contexts/EmployeeInformation
 
 const employeeDelete = async (data, setListOfEmployees) => {
     const requestOptions = {
-        method: 'DELETE',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     };
