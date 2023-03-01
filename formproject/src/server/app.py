@@ -66,7 +66,7 @@ def addEmployee():
     return make_response(jsonify(result), 200)
 
 
-@app.route('/delete/<id>', methods = ['DELETE'])
+@app.route('/delete/<id>', methods=['POST'])
 def removeEmployee(id):
     conn = dbConnection()
     cursor = conn.cursor()
@@ -82,7 +82,7 @@ def removeEmployee(id):
     return make_response(jsonify(result), 200)
 
 
-@app.route('/update', methods= ['PUT'])
+@app.route('/update', methods=['POST'])
 def updateEmployee():
     conn = dbConnection()
     cursor = conn.cursor()
