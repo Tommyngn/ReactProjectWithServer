@@ -33,12 +33,14 @@ const employeeUpdate = async (currentEmployee, firstName, lastName, email, job, 
         if (response.status === 200){
             return response.json()
         } else{
-            return []
+            return response.status
         }
     }).catch((error) => {
         console.log(error)
     })
-    setListOfEmployees(response)
+    if (response !== 401) {
+        setListOfEmployees(response)
+    }
 };
 
 

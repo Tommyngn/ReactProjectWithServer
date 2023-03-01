@@ -22,14 +22,15 @@ const employeeAdd = async (data, setListOfEmployees) => {
         if (response.status === 200){
             return response.json()
         } else{
-            return []
+            return response.status
         }
     }).catch((error) => {
         console.log(error)
     })
-    setListOfEmployees(response)
-
-
+    console.log(response)
+    if (response !== 401) {
+        setListOfEmployees(response)
+    }
 }
 
 const LandingPage = () => {
