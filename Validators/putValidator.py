@@ -1,18 +1,6 @@
 from datetime import *
-import pymysql
 
-conn = pymysql.connect(
-    host='sql9.freesqldatabase.com',
-    database='sql9601759',
-    user='sql9601759',
-    password='VHBB3I6Evw',
-    charset='utf8mb4',
-    cursorclass=pymysql.cursors.DictCursor
-)
-
-cursor = conn.cursor()
-
-def validatePutData(data):
+def validatePutData(data, cursor):
     errors = []
 
     cursor.execute('SELECT * FROM employee WHERE person_id = %s', int(data['employeeId']))
