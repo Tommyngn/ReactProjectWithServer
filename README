@@ -1,0 +1,6 @@
+Clone Repo
+Open up 2 terminals
+cd into server directory and run Python app.py
+on the second terminal cd into formproject directory
+run npm install
+run npm start
