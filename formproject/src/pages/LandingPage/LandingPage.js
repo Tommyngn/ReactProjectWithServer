@@ -122,8 +122,6 @@ const LandingPage = () => {
                 </Grid>
                 { employees.length > 0 ? employees.map((employee) => {
                     return <EmployeeInfoRow employee={employee} openModal={() => {
-                        const l = listOfEmployees.filter(e => e.employeeId === employee.employeeId )
-                        setCurrentEmployee(l[0])
                         setEditModalOpen(true)
                     }}/>
                 }) : <></> }
