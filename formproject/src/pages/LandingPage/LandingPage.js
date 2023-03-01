@@ -19,7 +19,6 @@ const employeeAdd = async (data, setListOfEmployees) => {
     };
 
     const response = await fetch("http://localhost:3000/add", requestOptions).then((response) => {
-        console.log(response)
         if (response.status === 200){
             return response.json()
         } else{
@@ -78,12 +77,9 @@ const LandingPage = () => {
                         renderInput={(params) => <TextField {...params} />} 
                         onChange={(newValue) => {
                             setValue(newValue);
-                            console.log(value)
-                            console.log(value['$d'].toDateString())
                             const dateArray = value['$d'].toString().split(" ")
                             const month = months[dateArray[1]]
                             const fulldate = `${dateArray[3]}-${month}-${dateArray[2]}`
-                            console.log(fulldate)
                             setHiredDate(fulldate)
                             }
                         }
