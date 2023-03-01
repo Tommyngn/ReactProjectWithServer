@@ -71,7 +71,7 @@ def removeEmployee(id):
     conn = dbConnection()
     cursor = conn.cursor()
     print(id)
-    if deleteValidator.validateDeleteData(id) == False:
+    if deleteValidator.validateDeleteData(id, cursor) == False:
         return make_response((jsonify({'error': 'Employee does not exist'})), 401)
     query = "DELETE from employee WHERE person_id = %s"
     cursor.execute(query,int(id))
@@ -88,7 +88,7 @@ def updateEmployee():
     cursor = conn.cursor()
     data=request.get_json()
     print(data)
-    errors = putValidator.validatePutData(data)
+    errors = putValidator.validatePutData(data, cursor)
     if len(errors) > 0:
         return make_response(jsonify(errors), 401)
     query = """

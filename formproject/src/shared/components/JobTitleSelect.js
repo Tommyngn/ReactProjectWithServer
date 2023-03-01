@@ -6,7 +6,6 @@ import Select from '@mui/material/Select';
 const JobTitleSelect = ({job, changeJob}) => {
     const jobTitleOptions = ['TA RepA', 'TA RepB', 'Direct RepA', 'Direct RepB']
     const [jobTitle, setJobTitle] = useState("")
-    console.log(job)
 
     useEffect(() => {
         if(job !== "") {

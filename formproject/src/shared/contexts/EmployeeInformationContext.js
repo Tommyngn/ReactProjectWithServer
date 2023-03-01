@@ -26,7 +26,6 @@ const EmployeeInformationContext = ({children}) => {
         }).catch((error) => {
             console.log(error)
         })
-        console.log(response)
         setListOfEmployees(response)
     }
 
