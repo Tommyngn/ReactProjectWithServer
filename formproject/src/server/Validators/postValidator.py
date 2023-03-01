@@ -1,6 +1,12 @@
 from datetime import *
-def validatePostData(data):
+def validatePostData(data, cursor):
     errors = []
+
+    cursor.execute('SELECT * FROM employee WHERE person_id = %s', int(data['employeeId']))
+    result = cursor.fetchone()
+
+    if result != None:
+        errors.append({'errors': 'personal Id already exists'})
 
     if data.get('employeeId').isdigit() is False or len(data.get('employeeId')) < 7 or len(data.get('employeeId')) > 7:
         errors.append({'error': 'Invalid personal ID'})

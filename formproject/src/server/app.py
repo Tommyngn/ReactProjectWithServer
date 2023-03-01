@@ -48,7 +48,7 @@ def addEmployee():
     cursor = conn.cursor()
     data = request.get_json()
     print(data)
-    errors = postValidator.validatePostData(data)
+    errors = postValidator.validatePostData(data,cursor)
     if len(errors) > 0:
         return make_response(jsonify(errors), 401)
 
