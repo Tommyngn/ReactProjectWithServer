@@ -22,12 +22,13 @@ def validatePutData(data, cursor):
     for i in data.get('emailAddress'):
         if i == ' ':
             errors.append({'error': 'Theres a space in the email address'})
+            break
         elif i == '@':
             emailcheck += 1
         elif i == '.':
             emailcheck += 1
 
-    if emailcheck != 2:
+    if emailcheck < 2:
         errors.append({'error': 'Not a valid email address'})
 
     datestring = data['hiredDate'][0:10].split('-')
