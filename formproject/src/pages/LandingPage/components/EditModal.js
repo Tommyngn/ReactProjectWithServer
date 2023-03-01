@@ -16,7 +16,7 @@ const employeeUpdate = async (currentEmployee, firstName, lastName, email, job, 
     const emailAddress = email !== "" ? email : currentEmployee.emailAddress
 
     const requestOptions = {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             ...currentEmployee,
