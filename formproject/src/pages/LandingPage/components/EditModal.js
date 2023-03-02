@@ -99,7 +99,7 @@ const EditModal = ({isOpen, setIsOpen}) => {
                             renderInput={(params) => <TextField {...params} />} 
                             onChange={(newValue) => {
                                 setHired(newValue);
-                                const dateArray = hired['$d'].toString().split(" ")
+                                const dateArray = newValue['$d'].toString().split(" ")
                                 const month = months[dateArray[1]]
                                 const fulldate = `${dateArray[3]}-${month}-${dateArray[2]}`
                                 console.log(fulldate)
