@@ -34,7 +34,7 @@ const employeeAdd = async (data, setListOfEmployees) => {
 }
 
 const LandingPage = () => {
-    const [value, setValue] = useState(dayjs().add(1, 'day'));
+    const [value, setValue] = useState(dayjs());
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [employees, setEmployees] = useState([])
     const { 
@@ -78,9 +78,10 @@ const LandingPage = () => {
                         renderInput={(params) => <TextField {...params} />} 
                         onChange={(newValue) => {
                             setValue(newValue);
-                            const dateArray = value['$d'].toString().split(" ")
+                            const dateArray = newValue['$d'].toString().split(" ")
                             const month = months[dateArray[1]]
                             const fulldate = `${dateArray[3]}-${month}-${dateArray[2]}`
+                            console.log(fulldate)
                             setHiredDate(fulldate)
                             }
                         }
@@ -113,8 +114,8 @@ const LandingPage = () => {
                             setAgencyNumber("")
                             setRegistrationNumber("")
                             setJob("")
-                            setHiredDate(dayjs().add(1, 'day'))
-                            setValue(dayjs().add(1, 'day'))
+                            setHiredDate(dayjs())
+                            setValue(dayjs())
                             }
                         }
                     >
