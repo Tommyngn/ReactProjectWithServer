@@ -45,7 +45,6 @@ const employeeUpdate = async (currentEmployee, firstName, lastName, email, job, 
 
 
 const EditModal = ({isOpen, setIsOpen}) => {
-    const [value, setValue] = useState(dayjs())
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -57,10 +56,24 @@ const EditModal = ({isOpen, setIsOpen}) => {
      } = UseEmployeeContext();
 
      useEffect(() => {
-        if (currentEmployee) {
-            setValue(dayjs(currentEmployee.hiredDate))
+        if (currentEmployee && isOpen) {
+            setHired(dayjs(currentEmployee.hiredDate))
+            setFirstName(currentEmployee.employeeFirstName)
+            setLastName(currentEmployee.employeeLastName)
+            setEmail(currentEmployee.emailAddress)
+            setJob(currentEmployee.job)
         }
-     },[currentEmployee])
+     },[currentEmployee, isOpen])
+
+     useEffect(() => {
+        if (!isOpen) {
+            setFirstName("")
+            setLastName("")
+            setEmail("")
+            setJob("")
+            setHired(dayjs())
+        }
+     }, [isOpen])
 
     return (
         <div>
@@ -82,11 +95,11 @@ const EditModal = ({isOpen, setIsOpen}) => {
                         <Grid item xs={12}>
                             <DatePicker 
                             label="Hired Date" 
-                            value={value}
+                            value={hired}
                             renderInput={(params) => <TextField {...params} />} 
                             onChange={(newValue) => {
-                                setValue(newValue);
-                                const dateArray = value['$d'].toString().split(" ")
+                                setHired(newValue);
+                                const dateArray = hired['$d'].toString().split(" ")
                                 const month = months[dateArray[1]]
                                 const fulldate = `${dateArray[3]}-${month}-${dateArray[2]}`
                                 console.log(fulldate)
