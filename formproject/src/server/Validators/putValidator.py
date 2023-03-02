@@ -18,17 +18,18 @@ def validatePutData(data, cursor):
     if len(data.get('emailAddress')) == 0:
         errors.append({'error': 'email is empty'})
 
-    emailcheck = 0
+    symbolcheck = 0
+    periodcheck = 0
     for i in data.get('emailAddress'):
         if i == ' ':
             errors.append({'error': 'Theres a space in the email address'})
             break
         elif i == '@':
-            emailcheck += 1
+            symbolcheck += 1
         elif i == '.':
-            emailcheck += 1
+            periodcheck += 1
 
-    if emailcheck < 2:
+    if periodcheck == 0 or symbolcheck != 1:
         errors.append({'error': 'Not a valid email address'})
 
     datestring = data['hiredDate'][0:10].split('-')

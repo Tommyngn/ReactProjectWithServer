@@ -34,7 +34,7 @@ const employeeAdd = async (data, setListOfEmployees) => {
 }
 
 const LandingPage = () => {
-    const [value, setValue] = useState(dayjs());
+    const [value, setValue] = useState(dayjs().add(1, 'day'));
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [employees, setEmployees] = useState([])
     const { 
@@ -113,7 +113,8 @@ const LandingPage = () => {
                             setAgencyNumber("")
                             setRegistrationNumber("")
                             setJob("")
-                            setHiredDate(dayjs())
+                            setHiredDate(dayjs().add(1, 'day'))
+                            setValue(dayjs().add(1, 'day'))
                             }
                         }
                     >
