@@ -51,7 +51,7 @@ const LandingPage = () => {
      } = UseEmployeeContext();
 
     useEffect(() => {
-        if (listOfEmployees.length > 0) {
+        if (listOfEmployees) {
             setEmployees(listOfEmployees)
         }
     })
