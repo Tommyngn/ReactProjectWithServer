@@ -5,7 +5,7 @@ from formatters import getFormatter
 from datetime import date
 import pymysql
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 CORS(app)
 
 def dbConnection():
@@ -32,6 +32,11 @@ def getEmployeeList():
     cursor.execute(query)
     result = getFormatter.formatGetListResponse(cursor.fetchall())
     return make_response(jsonify(result), 200)
+
+@app.route('/')
+def index():
+
+    return app.send_static_file('index.html')
 
 @app.route('/get/<id>', methods=['GET'])
 def getSingleEmployee(id):
