@@ -18,7 +18,7 @@ const employeeAdd = async (data, setListOfEmployees) => {
         body: JSON.stringify(data)
     };
 
-    const response = await fetch("https://git.heroku.com/form-project-app.git/add", requestOptions).then((response) => {
+    const response = await fetch("https://form-project-app.herokuapp.com/add", requestOptions).then((response) => {
         if (response.status === 200){
             return response.json()
         } else{
