@@ -21,7 +21,7 @@ const EmployeeInformationContext = ({children}) => {
 
     const getInitialData = async () => {
 
-        const response = await fetch("http://localhost:3000/welcome").then((response) => {
+        const response = await fetch("https://git.heroku.com/form-project-app.git/welcome").then((response) => {
             return response.json()
         }).catch((error) => {
             console.log(error)

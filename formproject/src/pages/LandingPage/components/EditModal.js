@@ -28,7 +28,7 @@ const employeeUpdate = async (currentEmployee, firstName, lastName, email, job, 
         })
     };
 
-    const response = await fetch("http://localhost:3000/update", requestOptions).then((response) => {
+    const response = await fetch("https://git.heroku.com/form-project-app.git/update", requestOptions).then((response) => {
         console.log(response)
         if (response.status === 200){
             return response.json()

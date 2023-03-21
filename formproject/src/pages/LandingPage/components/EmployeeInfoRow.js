@@ -10,7 +10,7 @@ const employeeDelete = async (data, setListOfEmployees) => {
         body: JSON.stringify(data)
     };
 
-    const response = await fetch(`http://localhost:3000/delete/${data}`, requestOptions).then((response) => {
+    const response = await fetch(`https://git.heroku.com/form-project-app.git/delete/${data}`, requestOptions).then((response) => {
         console.log(response)
         if (response.status === 200){
             return response.json()
@@ -27,7 +27,7 @@ const employeeDelete = async (data, setListOfEmployees) => {
 
 const employeeGet = async (data, setCurrentEmployee) => {
 
-    const response = await fetch(`http://localhost:3000/get/${data}`).then((response) => {
+    const response = await fetch(`https://git.heroku.com/form-project-app.git/get/${data}`).then((response) => {
         console.log(response)
         if (response.status === 200){
             return response.json()
