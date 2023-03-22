@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
+from flask.helpers import send_from_directory
 from Validators import postValidator, deleteValidator, putValidator
 from formatters import getFormatter
 from datetime import date
 import pymysql
 
-app = Flask(__name__, static_folder='./build', static_url_path='/')
+app = Flask(__name__, static_folder='formproject/build', static_url_path='/')
 CORS(app)
 
 def dbConnection():
@@ -36,7 +37,7 @@ def getEmployeeList():
 @app.route('/')
 def index():
 
-    return app.send_static_file('index.html')
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/get/<id>', methods=['GET'])
 def getSingleEmployee(id):
@@ -111,4 +112,4 @@ def updateEmployee():
 
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=3000, debug=True)
+    app.run()
