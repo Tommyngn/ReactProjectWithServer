@@ -2,7 +2,7 @@
   "name": "formproject",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://git.heroku.com/form-project-app.git/",
+  "proxy": "https://react-form-app.herokuapp.com/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
